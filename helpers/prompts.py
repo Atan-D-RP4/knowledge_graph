@@ -1,10 +1,10 @@
 import sys
 from yachalk import chalk
-sys.path.append("..")
 
 import json
 import ollama.client as client
 
+sys.path.append("..")
 
 def extractConcepts(prompt: str, metadata={}, model="mistral-openorca:latest"):
     SYS_PROMPT = (
@@ -67,7 +67,8 @@ def graphPrompt(input: str, metadata={}, model="mistral-openorca:latest"):
     try:
         result = json.loads(response)
         result = [dict(item, **metadata) for item in result]
-    except:
+    except Exception as e:
+        print("ERROR ### Exception: ", e)
         print("\n\nERROR ### Here is the buggy response: ", response, "\n\n")
         result = None
     return result
