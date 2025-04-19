@@ -12,7 +12,7 @@ dependencies = [
     "pypdf>=3.17.0",
     "pyvis>=0.3.2",
     "seaborn>=0.13.0",
-    "unstructured>=0.10.30",
+    "unstructured[pdf]>=0.10.30",
     "uuid>=1.30",
     "yachalk>=0.1.5",
     "pathlib>=1.0.1",
@@ -20,4 +20,5 @@ dependencies = [
     "langchain-community>=0.3.21",
     "transformers>=4.51.1",
     "tensorflow>=2.19.0",
+    "tesseract>=0.1.3",
 ]
