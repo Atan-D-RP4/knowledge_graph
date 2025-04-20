@@ -61,8 +61,8 @@ from helpers.df_helpers import graph2Df
 regenerate = True
 
 if regenerate:
-    # concepts_list = df2Graph(df, model="zephyr:latest")
-    concepts_list = df2Graph(df)
+    concepts_list = df2Graph(df, model="stablelm-zephyr:3b-q3_K_S")
+    # concepts_list = df2Graph(df)
     dfg1 = graph2Df(concepts_list)
     if not os.path.exists(outputdirectory):
         os.makedirs(outputdirectory)
@@ -71,6 +71,7 @@ if regenerate:
     df.to_csv(outputdirectory / "chunks.csv", sep="|", index=False)
 else:
     dfg1 = pd.read_csv(outputdirectory / "graph.csv", sep="|")
+print("===================================================")
 
 dfg1.replace("", np.nan, inplace=True)
 dfg1.dropna(subset=["node_1", "node_2", "edge"], inplace=True)
